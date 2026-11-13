@@ -1,10 +1,10 @@
 /* Secure Software — shared site styles.
-   Same layout system as securefunder.org / securebroker.org, with a magenta palette. */
+   Same layout system as securefunder.org / securebroker.org, with a wine palette. */
 :root {
-  --ink: #1E1219; --text: #45363F; --muted: #7A6672; --rule: #EADCE5; --band: #FCF4F9; --paper: #FFFFFF;
-  --link: #A21C7A; --accent: #A21C7A; --accent-deep: #7E1460; --dark: #2A0B22;
-  --highlight: #F5A6DA; --tag: #FBD3EE;
-  --foot-text: #D4BFCC; --foot-head: #A98E9E; --foot-link: #F5E6EF;
+  --ink: #1E1216; --text: #45353B; --muted: #7A666D; --rule: #EADDE1; --band: #FBF4F6; --paper: #FFFFFF;
+  --link: #8C1D40; --accent: #8C1D40; --accent-deep: #6B1530; --dark: #2A0A14;
+  --highlight: #E8B4C4; --tag: #F5D5DF;
+  --foot-text: #D6BFC7; --foot-head: #A88E97; --foot-link: #F5E7EC;
   --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --sans: 'Public Sans', 'Helvetica Neue', Arial, sans-serif;
   --wrap: 1160px;
@@ -66,7 +66,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .body p:last-child { margin-bottom: 0; }
 .body strong { color: var(--ink); font-weight: 600; }
 .tag-new { display: inline-block; background: var(--tag); color: var(--ink); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1; padding: 6px 9px; margin-bottom: 14px; }
-.soft-mark { background: rgba(245, 166, 218, .5); color: inherit; padding: 1px 4px; border-radius: 3px; }
+.soft-mark { background: rgba(232, 180, 196, .55); color: inherit; padding: 1px 4px; border-radius: 3px; }
 
 .lead { font-family: var(--serif); font-size: 24px; line-height: 1.45; color: var(--ink); margin: 0 0 28px; max-width: 30em; }
 
@@ -90,7 +90,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 /* Compare (not a checklist) */
 .contrast { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .contrast > div { border: 1px solid var(--rule); padding: 22px 22px 24px; }
-.contrast .is { border-color: var(--accent); background: #FDF5FA; }
+.contrast .is { border-color: var(--accent); background: #FCF4F7; }
 .contrast h3 { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
 .contrast .is h3 { color: var(--accent); }
 .contrast ul { list-style: none; margin: 0; padding: 0; }
