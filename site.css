@@ -1,15 +1,15 @@
-/* Secure Software — shared site styles.
-   Same layout system as securefunder.org / securebroker.org, with a teal palette. */
+/* Secure Vendor — shared site styles.
+   Same layout system as securefunder.org / securebroker.org, with a bright orange palette. */
 :root {
-  /* Teals, soft -> bright -> dark */
-  --teal-50: #F0FDFA; --teal-100: #D5FAF2; --teal-200: #A7F3E4; --teal-300: #5EEAD4;
-  --bright: #2DD4BF; --teal-500: #14B8A6;
-  --teal-700: #0F766E; --teal-800: #115E59; --teal-900: #134E4A; --teal-950: #042F2E;
+  /* Bright oranges, soft -> bright -> dark */
+  --orange-50: #FFF7ED; --orange-100: #FFEDD5; --orange-200: #FED7AA; --orange-300: #FDBA74;
+  --bright: #FF8A1F; --vivid: #FF6A00; --orange-600: #EA580C; --orange-700: #C2410C;
+  --orange-950: #2A1205;
 
-  --ink: var(--teal-950); --text: #24423F; --muted: #5B7A76; --rule: #CDEDE7; --band: var(--teal-50); --paper: #FFFFFF;
-  --link: var(--teal-700); --accent: var(--teal-700); --accent-deep: var(--teal-800); --dark: var(--teal-700);
-  --highlight: var(--bright); --tag: var(--teal-200);
-  --foot-text: var(--teal-200); --foot-head: var(--teal-300); --foot-link: #FFFFFF;
+  --ink: var(--orange-950); --text: #4A3324; --muted: #866A57; --rule: #F6DEC8; --band: var(--orange-50); --paper: #FFFFFF;
+  --link: var(--orange-700); --accent: var(--vivid); --accent-deep: var(--orange-600); --dark: var(--vivid);
+  --highlight: var(--bright); --tag: var(--orange-200);
+  --foot-text: var(--orange-200); --foot-head: var(--orange-300); --foot-link: #FFFFFF;
   --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --sans: 'Public Sans', 'Helvetica Neue', Arial, sans-serif;
   --wrap: 1160px;
@@ -26,8 +26,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; margin: 0; }
 
 /* Buttons */
-.btn { display: inline-block; font-family: var(--sans); font-size: 15px; font-weight: 600; padding: 12px 22px; min-width: 148px; text-align: center; border: 1px solid var(--accent); background: var(--accent); color: #fff; line-height: 1.2; cursor: pointer; }
-.btn:hover { background: var(--accent-deep); border-color: var(--accent-deep); color: #fff; text-decoration: none; }
+.btn { display: inline-block; font-family: var(--sans); font-size: 15px; font-weight: 600; padding: 12px 22px; min-width: 148px; text-align: center; border: 1px solid var(--accent); background: var(--accent); color: var(--ink); line-height: 1.2; cursor: pointer; }
+.btn:hover { background: var(--accent-deep); border-color: var(--accent-deep); color: var(--ink); text-decoration: none; }
 .btn-quiet { background: transparent; color: var(--ink); border-color: var(--ink); }
 .btn-quiet:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
 
@@ -60,8 +60,8 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 
 /* Sections */
 .section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
-.section.dark { background: var(--teal-700); color: #E6FFFA; border-bottom: 0; }
-.section.dark h2, .section.dark strong { color: #fff; }
+.section.dark { background: var(--vivid); color: var(--ink); border-bottom: 0; }
+.section.dark h2, .section.dark strong { color: var(--ink); }
 .section.band { background: var(--band); }
 .section > .wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 64px; }
 .section h2 { font-size: 38px; line-height: 1.15; letter-spacing: -0.01em; }
@@ -71,8 +71,9 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .body p:last-child { margin-bottom: 0; }
 .body strong { color: var(--ink); font-weight: 600; }
 .tag-new { display: inline-block; background: var(--tag); color: var(--ink); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1; padding: 6px 9px; margin-bottom: 14px; }
-.soft-mark { background: rgba(45, 212, 191, .3); color: inherit; padding: 1px 4px; border-radius: 3px; }
+.soft-mark { background: rgba(255, 138, 31, .3); color: inherit; padding: 1px 4px; border-radius: 3px; }
 
+.note { font-size: 15px; color: var(--muted); margin: 20px 0 0; max-width: 40em; }
 .lead { font-family: var(--serif); font-size: 24px; line-height: 1.45; color: var(--ink); margin: 0 0 28px; max-width: 30em; }
 
 /* Lists */
@@ -95,7 +96,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 /* Compare (not a checklist) */
 .contrast { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .contrast > div { border: 1px solid var(--rule); padding: 22px 22px 24px; }
-.contrast .is { border-color: var(--bright); border-width: 2px; background: var(--teal-100); }
+.contrast .is { border-color: var(--bright); border-width: 2px; background: var(--orange-100); }
 .contrast h3 { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
 .contrast .is h3 { color: var(--accent); }
 .contrast ul { list-style: none; margin: 0; padding: 0; }
@@ -178,7 +179,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .notice { font-size: 14px; color: var(--muted); margin: 16px 0 0; }
 
 /* Footer */
-.site-foot { padding: 56px 0 48px; font-size: 14px; color: var(--foot-text); background: var(--teal-950); }
+.site-foot { padding: 56px 0 48px; font-size: 14px; color: var(--foot-text); background: var(--orange-950); }
 .site-foot .fob { --fob-rule: rgba(255,255,255,0.22); margin: 0 0 48px; }
 .site-foot .fob-title { margin: 0 0 6px; font-family: inherit; font-size: 17px; font-weight: 700; color: #fff; }
 .site-foot .fob-sub { margin: 0; max-width: none; font-size: 14px; color: var(--foot-text); }
@@ -201,7 +202,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .site-foot .foot-bottom { margin-top: 44px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.22); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 
 /* Bio modal */
-.bio-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(4,47,46,.5); display: none; align-items: center; justify-content: center; padding: 24px; }
+.bio-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(42,18,5,.5); display: none; align-items: center; justify-content: center; padding: 24px; }
 .bio-overlay.active { display: flex; }
 .bio-box { position: relative; background: #fff; max-width: 620px; width: 100%; padding: 44px 40px 36px; border: 1px solid var(--rule); max-height: 90vh; overflow: auto; }
 .bio-box h3 { font-size: 24px; margin-bottom: 18px; }
