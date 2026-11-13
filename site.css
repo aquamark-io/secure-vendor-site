@@ -1,13 +1,13 @@
 /* Secure Vendor — shared site styles.
-   Same layout system as securefunder.org / securebroker.org, with a burnt orange palette. */
+   Same layout system as securefunder.org / securebroker.org, with Secure Funder's blue and Secure Broker's green. */
 :root {
-  /* Burnt orange, with the family's lime banner */
-  --orange: #B9471A; --orange-deep: #973913; --orange-dark: #7A3214; --orange-darkest: #4E200C; --lime: #DDF734;
+  /* Funder blue + Broker green, with the family's lime banner */
+  --blue: #1D4E89; --blue-deep: #163C6A; --navy: #0F2137; --green: #11352A; --lime: #DDF734;
 
-  --ink: #1F1611; --text: #46382F; --muted: #7A6A5D; --rule: #EEDFD5; --band: #FBF5F0; --paper: #FFFFFF;
-  --link: #1A6DD9; --accent: var(--orange); --accent-deep: var(--orange-deep); --dark: var(--orange-dark);
+  --ink: #0E1B2E; --text: #3A4659; --muted: #6B7686; --rule: #D9DEE5; --band: #F4F6F9; --paper: #FFFFFF;
+  --link: #1A6DD9; --accent: var(--blue); --accent-deep: var(--blue-deep); --dark: var(--green);
   --highlight: var(--lime); --tag: #FFE45C;
-  --foot-text: #E3CDBF; --foot-head: #C2A592; --foot-link: #F7EAE1;
+  --foot-text: #A9B4C2; --foot-head: #8C98A8; --foot-link: #DCE3EB;
   --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --sans: 'Public Sans', 'Helvetica Neue', Arial, sans-serif;
   --wrap: 1160px;
@@ -75,7 +75,7 @@ a.client-slot:hover img { filter: none; opacity: 1; }
 
 /* Sections */
 .section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
-.section.dark { background: var(--dark); color: #F3E3D8; border-bottom: 0; }
+.section.dark { background: var(--green); color: #C9D2DE; border-bottom: 0; }
 .section.dark h2, .section.dark strong { color: #fff; }
 .section.band { background: var(--band); }
 .section > .wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 64px; }
@@ -111,7 +111,7 @@ a.client-slot:hover img { filter: none; opacity: 1; }
 /* Compare (not a checklist) */
 .contrast { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .contrast > div { border: 1px solid var(--rule); padding: 22px 22px 24px; }
-.contrast .is { border-color: var(--orange); border-width: 2px; background: var(--paper); }
+.contrast .is { border-color: var(--blue); border-width: 2px; background: var(--paper); }
 .contrast h3 { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
 .contrast .is h3 { color: var(--accent); }
 .contrast ul { list-style: none; margin: 0; padding: 0; }
@@ -133,12 +133,12 @@ a.client-slot:hover img { filter: none; opacity: 1; }
 .linkbtn:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Closing band */
-.closing { padding: 96px 0; background: var(--dark); color: #F3E3D8; }
+.closing { padding: 96px 0; background: var(--navy); color: #C9D2DE; }
 .closing .wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
 .closing h2 { color: #fff; font-size: clamp(32px, 4vw, 44px); line-height: 1.1; max-width: 16em; }
 .closing p { margin: 14px 0 0; font-size: 16px; }
 .closing .btn { background: #fff; border-color: #fff; color: var(--ink); }
-.closing .btn:hover { background: #F7EAE1; border-color: #F7EAE1; color: var(--ink); }
+.closing .btn:hover { background: #E6EAF0; border-color: #E6EAF0; color: var(--ink); }
 .closing .btn-quiet { background: transparent; color: #fff; border-color: #fff; }
 .closing .btn-quiet:hover { background: #fff; color: var(--ink); }
 .closing-actions { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -195,7 +195,7 @@ a.client-slot:hover img { filter: none; opacity: 1; }
 .notice { font-size: 14px; color: var(--muted); margin: 16px 0 0; }
 
 /* Footer */
-.site-foot { padding: 56px 0 48px; font-size: 14px; color: var(--foot-text); background: var(--orange-darkest); }
+.site-foot { padding: 56px 0 48px; font-size: 14px; color: var(--foot-text); background: var(--green); }
 .site-foot .fob { --fob-rule: rgba(255,255,255,0.15); margin: 0 0 48px; }
 .site-foot .fob-title { margin: 0 0 6px; font-family: inherit; font-size: 17px; font-weight: 700; color: #fff; }
 .site-foot .fob-sub { margin: 0; max-width: none; font-size: 14px; color: var(--foot-text); }
@@ -218,7 +218,7 @@ a.client-slot:hover img { filter: none; opacity: 1; }
 .site-foot .foot-bottom { margin-top: 44px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.15); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 
 /* Bio modal */
-.bio-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(31,22,17,.5); display: none; align-items: center; justify-content: center; padding: 24px; }
+.bio-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(14,27,46,.45); display: none; align-items: center; justify-content: center; padding: 24px; }
 .bio-overlay.active { display: flex; }
 .bio-box { position: relative; background: #fff; max-width: 620px; width: 100%; padding: 44px 40px 36px; border: 1px solid var(--rule); max-height: 90vh; overflow: auto; }
 .bio-box h3 { font-size: 24px; margin-bottom: 18px; }
