@@ -56,6 +56,22 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .figure { margin: 0; }
 .figure-frame img { margin: 0 auto; max-height: 360px; width: auto; }
 
+/* Charter members */
+.clients { padding: 44px 0 48px; border-bottom: 1px solid var(--rule); }
+.clients-label { margin: 0 0 24px; font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.client-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; }
+.client-slot { display: flex; align-items: center; justify-content: center; height: 88px; padding: 12px 16px; border: 1px solid var(--rule); text-align: center; }
+a.client-slot:hover { border-color: var(--ink); text-decoration: none; }
+.client-slot img { max-height: 36px; max-width: 100%; width: auto; filter: grayscale(100%); opacity: .75; transition: filter .2s ease, opacity .2s ease; }
+a.client-slot:hover img { filter: none; opacity: 1; }
+.client-name { font-family: var(--sans); font-size: 22px; font-weight: 700; letter-spacing: -.01em; color: var(--ink); }
+.client-slot.soon { border-style: dashed; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 640px) {
+  .client-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .client-grid li:first-child { grid-column: 1 / -1; }
+  .client-slot { height: 72px; }
+}
+
 /* Sections */
 .section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
 .section.dark { background: var(--dark); color: #E6D3DA; border-bottom: 0; }
