@@ -1,13 +1,13 @@
 /* Secure Vendor — shared site styles.
-   Same layout system as securefunder.org / securebroker.org, with a charcoal palette. */
+   Same layout system as securefunder.org / securebroker.org, with a burgundy palette. */
 :root {
-  /* Charcoal, with the family's lime banner */
-  --charcoal: #2B2F34; --charcoal-deep: #1C1F23; --slate: #5B626B; --lime: #DDF734;
+  /* Burgundy, with the family's lime banner */
+  --burgundy: #8C1D40; --burgundy-deep: #6B1530; --burgundy-dark: #4A0E22; --burgundy-darkest: #33091A; --lime: #DDF734;
 
-  --ink: #16191C; --text: #3D434A; --muted: #6B7279; --rule: #DADDE1; --band: #F4F5F6; --paper: #FFFFFF;
-  --link: #1A6DD9; --accent: var(--charcoal); --accent-deep: var(--charcoal-deep); --dark: var(--charcoal);
+  --ink: #1E1216; --text: #45353B; --muted: #7A666D; --rule: #EADDE1; --band: #FBF4F6; --paper: #FFFFFF;
+  --link: #1A6DD9; --accent: var(--burgundy); --accent-deep: var(--burgundy-deep); --dark: var(--burgundy-dark);
   --highlight: var(--lime); --tag: #FFE45C;
-  --foot-text: #A9B0B8; --foot-head: #8C939B; --foot-link: #DCE0E4;
+  --foot-text: #D6BFC7; --foot-head: #B89AA5; --foot-link: #F5E7EC;
   --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --sans: 'Public Sans', 'Helvetica Neue', Arial, sans-serif;
   --wrap: 1160px;
@@ -58,7 +58,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 
 /* Sections */
 .section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
-.section.dark { background: var(--dark); color: #C9CED4; border-bottom: 0; }
+.section.dark { background: var(--dark); color: #E6D3DA; border-bottom: 0; }
 .section.dark h2, .section.dark strong { color: #fff; }
 .section.band { background: var(--band); }
 .section > .wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 64px; }
@@ -94,7 +94,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 /* Compare (not a checklist) */
 .contrast { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .contrast > div { border: 1px solid var(--rule); padding: 22px 22px 24px; }
-.contrast .is { border-color: var(--charcoal); border-width: 2px; background: var(--paper); }
+.contrast .is { border-color: var(--burgundy); border-width: 2px; background: var(--paper); }
 .contrast h3 { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
 .contrast .is h3 { color: var(--accent); }
 .contrast ul { list-style: none; margin: 0; padding: 0; }
@@ -116,12 +116,12 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .linkbtn:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Closing band */
-.closing { padding: 96px 0; background: var(--dark); color: #C9CED4; }
+.closing { padding: 96px 0; background: var(--dark); color: #E6D3DA; }
 .closing .wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
 .closing h2 { color: #fff; font-size: clamp(32px, 4vw, 44px); line-height: 1.1; max-width: 16em; }
 .closing p { margin: 14px 0 0; font-size: 16px; }
 .closing .btn { background: #fff; border-color: #fff; color: var(--ink); }
-.closing .btn:hover { background: #E6E9EC; border-color: #E6E9EC; color: var(--ink); }
+.closing .btn:hover { background: #F5E7EC; border-color: #F5E7EC; color: var(--ink); }
 .closing .btn-quiet { background: transparent; color: #fff; border-color: #fff; }
 .closing .btn-quiet:hover { background: #fff; color: var(--ink); }
 .closing-actions { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -177,7 +177,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .notice { font-size: 14px; color: var(--muted); margin: 16px 0 0; }
 
 /* Footer */
-.site-foot { padding: 56px 0 48px; font-size: 14px; color: var(--foot-text); background: var(--charcoal-deep); }
+.site-foot { padding: 56px 0 48px; font-size: 14px; color: var(--foot-text); background: var(--burgundy-darkest); }
 .site-foot .fob { --fob-rule: rgba(255,255,255,0.15); margin: 0 0 48px; }
 .site-foot .fob-title { margin: 0 0 6px; font-family: inherit; font-size: 17px; font-weight: 700; color: #fff; }
 .site-foot .fob-sub { margin: 0; max-width: none; font-size: 14px; color: var(--foot-text); }
@@ -200,7 +200,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .site-foot .foot-bottom { margin-top: 44px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.15); display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 
 /* Bio modal */
-.bio-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(22,25,28,.5); display: none; align-items: center; justify-content: center; padding: 24px; }
+.bio-overlay { position: fixed; inset: 0; z-index: 100; background: rgba(30,18,22,.5); display: none; align-items: center; justify-content: center; padding: 24px; }
 .bio-overlay.active { display: flex; }
 .bio-box { position: relative; background: #fff; max-width: 620px; width: 100%; padding: 44px 40px 36px; border: 1px solid var(--rule); max-height: 90vh; overflow: auto; }
 .bio-box h3 { font-size: 24px; margin-bottom: 18px; }
