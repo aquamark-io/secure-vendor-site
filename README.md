@@ -1,6 +1,6 @@
 # secure-software-site
 
-Static site for Secure Software™ (securesoftware.org), the software certification in the Secure Broker / Secure Funder family. Same layout system as those sites, with an pink palette.
+Static site for Secure Software™ (securesoftware.org), the software certification in the Secure Broker / Secure Funder family. Same layout system as those sites, with an neon pink palette.
 
 - `site.css`: shared styles; colors are the tokens at the top.
 - Pages: `/`, `/how-it-works/`, `/join/`, `/contact/`, `/directory/`.

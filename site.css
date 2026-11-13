@@ -1,14 +1,14 @@
 /* Secure Software — shared site styles.
    Same layout system as securefunder.org / securebroker.org, with a pink palette. */
 :root {
-  /* Pinks, soft -> bright -> dark */
-  --pink-50: #FFF5FA; --pink-100: #FDE7F1; --pink-200: #FBCFE5; --pink-300: #F7A8CF;
-  --pink-500: #EC4899; --pink-600: #D6246F;
-  --pink-700: #B0185A; --pink-800: #8E1449; --pink-900: #6B0F38; --pink-950: #3F0820;
+  /* Neon / hot pinks, soft -> bright -> dark */
+  --pink-50: #FFF2F9; --pink-100: #FFE0F0; --pink-200: #FFC2E2; --pink-300: #FF8FCB;
+  --neon: #FF3EA5; --hot: #E6007E; --hot-deep: #C2006A;
+  --pink-900: #5A0632; --pink-950: #3A0420;
 
-  --ink: var(--pink-950); --text: #4A2A39; --muted: #8A6475; --rule: #F3D9E5; --band: var(--pink-50); --paper: #FFFFFF;
-  --link: var(--pink-700); --accent: var(--pink-600); --accent-deep: var(--pink-700); --dark: var(--pink-800);
-  --highlight: var(--pink-300); --tag: var(--pink-200);
+  --ink: var(--pink-950); --text: #4A2238; --muted: #8A5D74; --rule: #FFD3E9; --band: var(--pink-50); --paper: #FFFFFF;
+  --link: #CC0070; --accent: var(--hot); --accent-deep: var(--hot-deep); --dark: var(--hot);
+  --highlight: var(--neon); --tag: var(--pink-200);
   --foot-text: var(--pink-200); --foot-head: var(--pink-300); --foot-link: #FFFFFF;
   --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --sans: 'Public Sans', 'Helvetica Neue', Arial, sans-serif;
@@ -32,7 +32,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .btn-quiet:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
 
 /* Top line + nav */
-.topline { background: var(--highlight); color: #000; font-size: 13px; text-align: center; padding: 8px 16px; position: sticky; top: 0; z-index: 60; }
+.topline { background: var(--neon); color: var(--ink); font-weight: 600; font-size: 13px; text-align: center; padding: 8px 16px; position: sticky; top: 0; z-index: 60; }
 .nav { border-bottom: 1px solid var(--rule); background: var(--paper); position: sticky; top: 37px; z-index: 50; }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 24px; }
 .nav-logo { display: flex; align-items: center; gap: 10px; color: var(--ink); font-family: var(--sans); font-weight: 700; font-size: 19px; letter-spacing: -0.01em; white-space: nowrap; }
@@ -60,7 +60,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 
 /* Sections */
 .section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
-.section.dark { background: var(--dark); color: var(--foot-text); border-bottom: 0; }
+.section.dark { background: var(--hot); color: #FFE6F3; border-bottom: 0; }
 .section.dark h2, .section.dark strong { color: #fff; }
 .section.band { background: var(--band); }
 .section > .wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 64px; }
@@ -71,7 +71,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .body p:last-child { margin-bottom: 0; }
 .body strong { color: var(--ink); font-weight: 600; }
 .tag-new { display: inline-block; background: var(--tag); color: var(--ink); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1; padding: 6px 9px; margin-bottom: 14px; }
-.soft-mark { background: rgba(247, 168, 207, .55); color: inherit; padding: 1px 4px; border-radius: 3px; }
+.soft-mark { background: rgba(255, 62, 165, .25); color: inherit; padding: 1px 4px; border-radius: 3px; }
 
 .lead { font-family: var(--serif); font-size: 24px; line-height: 1.45; color: var(--ink); margin: 0 0 28px; max-width: 30em; }
 
@@ -95,7 +95,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 /* Compare (not a checklist) */
 .contrast { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .contrast > div { border: 1px solid var(--rule); padding: 22px 22px 24px; }
-.contrast .is { border-color: var(--accent); background: var(--pink-100); }
+.contrast .is { border-color: var(--neon); border-width: 2px; background: var(--pink-100); }
 .contrast h3 { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
 .contrast .is h3 { color: var(--accent); }
 .contrast ul { list-style: none; margin: 0; padding: 0; }
@@ -117,14 +117,14 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .linkbtn:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Closing band */
-.closing { padding: 96px 0; background: var(--pink-700); color: var(--foot-text); }
+.closing { padding: 96px 0; background: var(--neon); color: var(--ink); }
 .closing .wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
-.closing h2 { color: #fff; font-size: clamp(32px, 4vw, 44px); line-height: 1.1; max-width: 16em; }
+.closing h2 { color: var(--ink); font-size: clamp(32px, 4vw, 44px); line-height: 1.1; max-width: 16em; }
 .closing p { margin: 14px 0 0; font-size: 16px; }
-.closing .btn { background: #fff; border-color: #fff; color: var(--pink-800); }
-.closing .btn:hover { background: var(--pink-200); border-color: var(--pink-200); }
-.closing .btn-quiet { background: transparent; color: #fff; border-color: #fff; }
-.closing .btn-quiet:hover { background: #fff; color: var(--ink); }
+.closing .btn { background: var(--ink); border-color: var(--ink); color: #fff; }
+.closing .btn:hover { background: #fff; border-color: #fff; color: var(--ink); }
+.closing .btn-quiet { background: transparent; color: var(--ink); border-color: var(--ink); }
+.closing .btn-quiet:hover { background: var(--ink); color: #fff; }
 .closing-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 
 /* FAQ */
@@ -178,7 +178,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .notice { font-size: 14px; color: var(--muted); margin: 16px 0 0; }
 
 /* Footer */
-.site-foot { padding: 56px 0 48px; font-size: 14px; color: var(--foot-text); background: var(--pink-900); }
+.site-foot { padding: 56px 0 48px; font-size: 14px; color: var(--foot-text); background: var(--pink-950); }
 .site-foot .fob { --fob-rule: rgba(255,255,255,0.22); margin: 0 0 48px; }
 .site-foot .fob-title { margin: 0 0 6px; font-family: inherit; font-size: 17px; font-weight: 700; color: #fff; }
 .site-foot .fob-sub { margin: 0; max-width: none; font-size: 14px; color: var(--foot-text); }
@@ -194,7 +194,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .site-foot .foot-brand { font-family: var(--sans); font-weight: 700; font-size: 17px; color: #fff; margin: 0 0 10px; }
 .site-foot .foot-brand sup { font-size: 9px; font-weight: 500; }
 .site-foot p { margin: 0; max-width: 30em; line-height: 1.6; }
-.site-foot h4 { margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--foot-head); }
+.site-foot h4 { margin: 0 0 12px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--neon); }
 .site-foot a { color: var(--foot-link); }
 .site-foot a:hover { color: #fff; }
 .site-foot .foot-col a { display: block; padding: 3px 0; }
