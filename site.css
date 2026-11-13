@@ -185,6 +185,12 @@ a.press-row:hover h3 { color: var(--link); }
 .press-row h3 { font-size: 20px; line-height: 1.35; }
 @media (max-width: 640px) { .press-row { grid-template-columns: 64px minmax(0, 1fr); } .press-row img { width: 64px; } }
 
+/* FAQ: show the first 5 questions, fade the last one, "See all questions" reveals the rest */
+.faq-list.is-collapsed { position: relative; }
+.faq-list.is-collapsed .faq-item:nth-child(n+6) { display: none; }
+.faq-list.is-collapsed::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 72px; background: linear-gradient(rgba(255, 255, 255, 0), var(--paper)); pointer-events: none; }
+.faq-more { margin-top: 28px; }
+
 /* Inner pages */
 .page-head { padding: 72px 0 32px; border-bottom: 1px solid var(--rule); }
 .page-head h1 { font-size: clamp(40px, 5vw, 60px); line-height: 1.06; letter-spacing: -0.015em; font-weight: 400; }
