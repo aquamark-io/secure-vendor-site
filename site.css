@@ -49,7 +49,7 @@ sup.tm { font-size: .5em; font-weight: 500; line-height: 0; vertical-align: supe
 .hero { padding: 88px 0 80px; border-bottom: 1px solid var(--rule); }
 .hero .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 72px; align-items: center; }
 .hero h1 { font-size: clamp(40px, 5.2vw, 64px); line-height: 1.06; letter-spacing: -0.015em; font-weight: 400; }
-.hero h1 .m-br { display: none; }
+.hero h1 .m-br, .hero-lede .m-br { display: none; }
 .hero h1 strong { font-weight: 700; letter-spacing: -0.025em; }
 .hero-lede { font-size: 24px; line-height: 1.5; max-width: 24em; margin: 28px 0 0; color: var(--ink); }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
@@ -268,9 +268,9 @@ a.client-slot.soon:hover { color: var(--accent); }
   .mobile-menu a { padding: 14px 20px; }
   .hero { padding: 44px 0 48px; }
   .hero h1 { font-size: min(38px, 8.2vw); }
-  .hero h1 .m-br { display: inline; }
+  .hero h1 .m-br, .hero-lede .m-br { display: inline; }
   .hero h1, .hero-lede { text-align: center; margin-left: auto; margin-right: auto; }
-  .hero-lede { font-size: 20px; margin-top: 20px; }
+  .hero-lede { font-size: min(20px, calc(5.4vw - 2px)); margin-top: 20px; }  /* keeps each forced line on one line */
   .hero-actions { justify-content: center; }
   .hero-actions .btn { flex: 1 1 0; min-width: 0; }
   .hero .figure-frame img { max-height: 240px; }
