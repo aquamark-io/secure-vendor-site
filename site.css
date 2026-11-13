@@ -1,13 +1,13 @@
 /* Secure Vendor — shared site styles.
-   Same layout system as securefunder.org / securebroker.org, with Secure Funder's blue and Secure Broker's green. */
+   Same layout system as securefunder.org / securebroker.org, with a dark orange palette. */
 :root {
-  /* Funder blue + Broker green, with the family's lime banner */
-  --blue: #1D4E89; --blue-deep: #163C6A; --navy: #0F2137; --green: #11352A; --lime: #DDF734;
+  /* Dark orange on the site (like Broker's green / Funder's navy); bright orange only in the badge and logo */
+  --orange: #9A3412; --orange-deep: #7C2D12; --orange-dark: #5A2209; --lime: #DDF734;
 
   --ink: #0E1B2E; --text: #3A4659; --muted: #6B7686; --rule: #D9DEE5; --band: #F4F6F9; --paper: #FFFFFF;
-  --link: #1A6DD9; --accent: var(--blue); --accent-deep: var(--blue-deep); --dark: var(--green);
+  --link: #1A6DD9; --accent: var(--orange); --accent-deep: var(--orange-deep); --dark: var(--orange-dark);
   --highlight: var(--lime); --tag: #FFE45C;
-  --foot-text: #A9B4C2; --foot-head: #8C98A8; --foot-link: #DCE3EB;
+  --foot-text: #D9C3B6; --foot-head: #B89A88; --foot-link: #F3E6DD;
   --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --sans: 'Public Sans', 'Helvetica Neue', Arial, sans-serif;
   --wrap: 1160px;
@@ -75,7 +75,7 @@ a.client-slot:hover img { filter: none; opacity: 1; }
 
 /* Sections */
 .section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
-.section.dark { background: var(--green); color: #C9D2DE; border-bottom: 0; }
+.section.dark { background: var(--dark); color: #EAD9CE; border-bottom: 0; }
 .section.dark h2, .section.dark strong { color: #fff; }
 .section.band { background: var(--band); }
 .section > .wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 64px; }
@@ -111,7 +111,7 @@ a.client-slot:hover img { filter: none; opacity: 1; }
 /* Compare (not a checklist) */
 .contrast { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .contrast > div { border: 1px solid var(--rule); padding: 22px 22px 24px; }
-.contrast .is { border-color: var(--blue); border-width: 2px; background: var(--paper); }
+.contrast .is { border-color: var(--orange); border-width: 2px; background: var(--paper); }
 .contrast h3 { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
 .contrast .is h3 { color: var(--accent); }
 .contrast ul { list-style: none; margin: 0; padding: 0; }
@@ -133,12 +133,12 @@ a.client-slot:hover img { filter: none; opacity: 1; }
 .linkbtn:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Closing band */
-.closing { padding: 96px 0; background: var(--navy); color: #C9D2DE; }
+.closing { padding: 96px 0; background: var(--dark); color: #EAD9CE; }
 .closing .wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
 .closing h2 { color: #fff; font-size: clamp(32px, 4vw, 44px); line-height: 1.1; max-width: 16em; }
 .closing p { margin: 14px 0 0; font-size: 16px; }
 .closing .btn { background: #fff; border-color: #fff; color: var(--ink); }
-.closing .btn:hover { background: #E6EAF0; border-color: #E6EAF0; color: var(--ink); }
+.closing .btn:hover { background: #F3E6DD; border-color: #F3E6DD; color: var(--ink); }
 .closing .btn-quiet { background: transparent; color: #fff; border-color: #fff; }
 .closing .btn-quiet:hover { background: #fff; color: var(--ink); }
 .closing-actions { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -195,7 +195,7 @@ a.client-slot:hover img { filter: none; opacity: 1; }
 .notice { font-size: 14px; color: var(--muted); margin: 16px 0 0; }
 
 /* Footer */
-.site-foot { padding: 56px 0 48px; font-size: 14px; color: var(--foot-text); background: var(--green); }
+.site-foot { padding: 56px 0 48px; font-size: 14px; color: var(--foot-text); background: var(--dark); }
 .site-foot .fob { --fob-rule: rgba(255,255,255,0.15); margin: 0 0 48px; }
 .site-foot .fob-title { margin: 0 0 6px; font-family: inherit; font-size: 17px; font-weight: 700; color: #fff; }
 .site-foot .fob-sub { margin: 0; max-width: none; font-size: 14px; color: var(--foot-text); }
