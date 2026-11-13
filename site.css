@@ -37,6 +37,7 @@ h1, h2, h3 { font-family: var(--serif); color: var(--ink); font-weight: 500; mar
 .nav-logo:hover { text-decoration: none; }
 .nav-logo img { width: 30px; height: 30px; }
 .nav-logo sup { font-size: 10px; font-weight: 500; }
+sup.tm { font-size: .5em; font-weight: 500; line-height: 0; vertical-align: super; margin-left: 1px; }
 .nav-links { display: flex; align-items: center; gap: 28px; font-size: 15px; }
 .nav-links a { color: var(--ink); }
 .nav-links a:hover { color: var(--link); text-decoration: none; }
