@@ -1,13 +1,13 @@
 /* Secure Vendor — shared site styles.
-   Same layout system as securefunder.org / securebroker.org, with a dark orange palette. */
+   Same layout system as securefunder.org / securebroker.org, with a purple palette. */
 :root {
-  /* Dark orange on the site (like Broker's green / Funder's navy); bright orange only in the badge and logo */
-  --orange: #EF7215; --orange-deep: #D9620C; --orange-dark: #EF7215; --lime: #DDF734;
+  /* Dark purple on the site (like Broker's green / Funder's navy); light purple only in the badge and logo */
+  --purple: #4C2A85; --purple-deep: #3B2068; --purple-dark: #24123F; --lime: #DDF734;
 
   --ink: #0E1B2E; --text: #3A4659; --muted: #6B7686; --rule: #D9DEE5; --band: #F4F6F9; --paper: #FFFFFF;
-  --link: #1A6DD9; --accent: var(--orange); --accent-deep: var(--orange-deep); --dark: var(--orange-dark);
+  --link: #1A6DD9; --accent: var(--purple); --accent-deep: var(--purple-deep); --dark: var(--purple-dark);
   --highlight: var(--lime); --tag: #FFE45C;
-  --foot-text: #D9C3B6; --foot-head: #B89A88; --foot-link: #F3E6DD;
+  --foot-text: #C5BCD6; --foot-head: #9F93B5; --foot-link: #E6E0F0;
   --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
   --sans: 'Public Sans', 'Helvetica Neue', Arial, sans-serif;
   --wrap: 1160px;
@@ -74,7 +74,7 @@ a.client-slot:hover img { filter: none; opacity: 1; }
 
 /* Sections */
 .section { padding: 88px 0; border-bottom: 1px solid var(--rule); }
-.section.dark { background: var(--dark); color: #EAD9CE; border-bottom: 0; }
+.section.dark { background: var(--dark); color: #D5CCE3; border-bottom: 0; }
 .section.dark h2, .section.dark strong { color: #fff; }
 .section.band { background: var(--band); }
 .section > .wrap { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 64px; }
@@ -110,7 +110,7 @@ a.client-slot:hover img { filter: none; opacity: 1; }
 /* Compare (not a checklist) */
 .contrast { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
 .contrast > div { border: 1px solid var(--rule); padding: 22px 22px 24px; }
-.contrast .is { border-color: var(--orange); border-width: 2px; background: var(--paper); }
+.contrast .is { border-color: var(--purple); border-width: 2px; background: var(--paper); }
 .contrast h3 { font-family: var(--sans); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
 .contrast .is h3 { color: var(--accent); }
 .contrast ul { list-style: none; margin: 0; padding: 0; }
@@ -132,12 +132,12 @@ a.client-slot:hover img { filter: none; opacity: 1; }
 .linkbtn:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Closing band */
-.closing { padding: 96px 0; background: var(--dark); color: #EAD9CE; }
+.closing { padding: 96px 0; background: var(--dark); color: #D5CCE3; }
 .closing .wrap { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
 .closing h2 { color: #fff; font-size: clamp(32px, 4vw, 44px); line-height: 1.1; max-width: 16em; }
 .closing p { margin: 14px 0 0; font-size: 16px; }
 .closing .btn { background: #fff; border-color: #fff; color: var(--ink); }
-.closing .btn:hover { background: #F3E6DD; border-color: #F3E6DD; color: var(--ink); }
+.closing .btn:hover { background: #E9E3F2; border-color: #E9E3F2; color: var(--ink); }
 .closing .btn-quiet { background: transparent; color: #fff; border-color: #fff; }
 .closing .btn-quiet:hover { background: #fff; color: var(--ink); }
 .closing-actions { display: flex; gap: 12px; flex-wrap: wrap; }

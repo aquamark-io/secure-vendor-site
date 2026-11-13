@@ -1,6 +1,6 @@
 # Secure Vendor™ site
 
-Static site for Secure Vendor™ (securevendor.org), the vendor certification in the Secure Broker / Secure Funder family. Same layout system as those sites, with a a dark orange palette (bright orange only in the badge and logo) and the family lime banner. (The repo keeps its original `secure-software-site` name.)
+Static site for Secure Vendor™ (securevendor.org), the vendor certification in the Secure Broker / Secure Funder family. Same layout system as those sites, with a a purple palette (light purple only in the badge and logo) and the family lime banner. (The repo keeps its original `secure-software-site` name.)
 
 - `site.css`: shared styles; colors are the tokens at the top.
 - Pages: `/`, `/how-it-works/`, `/join/`, `/contact/`, `/directory/`. Links are relative, so the site works on github.io and on a custom domain.
