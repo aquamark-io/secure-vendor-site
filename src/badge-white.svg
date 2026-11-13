@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="50 42 1154 1154" width="1254" height="1254">
+  <!-- One-color white version for the Family of Brands footer row, built like the Broker and Funder footer badges:
+       solid white outer band with the lettering and center gap cut out, white center lettering, transparent background.
+       Same geometry as badge.svg. -->
+  <defs>
+    <path id="arcTop" d="M 167 627 A 460 460 0 0 1 1087 627"/>
+    <path id="arcBot" d="M 147 627 A 480 480 0 0 0 1107 627"/>
+    <style>text{font-family:'Inter','Public Sans','Helvetica Neue',Arial,sans-serif}</style>
+    <mask id="band" maskUnits="userSpaceOnUse" x="0" y="0" width="1254" height="1254">
+      <circle cx="627" cy="619" r="575" fill="#fff"/>
+      <circle cx="627" cy="619" r="442" fill="#000"/>
+      <rect x="40" y="612" width="1174" height="14" fill="#000"/>
+      <text font-size="74" font-weight="600" letter-spacing="14" fill="#000" text-anchor="middle"><textPath href="#arcTop" startOffset="50%">SECURITY  |  TRUST</textPath></text>
+      <text font-size="64" font-weight="600" letter-spacing="8" fill="#000" text-anchor="middle" dominant-baseline="hanging"><textPath href="#arcBot" startOffset="50%" side="left">SECUREVENDOR.ORG</textPath></text>
+    </mask>
+  </defs>
+  <rect x="0" y="0" width="1254" height="1254" fill="#FFFFFF" mask="url(#band)"/>
+  <text x="627" y="525" font-size="168" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">SECURE</text>
+  <text x="652" y="690" font-size="168" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">VENDOR<tspan font-size="48" font-weight="600" dy="-92" dx="6">TM</tspan></text>
+  <rect x="280" y="728" width="694" height="7" fill="#FFFFFF"/>
+  <text x="627" y="922" font-size="176" font-weight="600" fill="#FFFFFF" text-anchor="middle" letter-spacing="10">2026</text>
+</svg>
