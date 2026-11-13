@@ -157,6 +157,15 @@ a.client-slot.soon:hover { color: var(--accent); }
 .faq-a li:last-child { margin-bottom: 0; }
 .faq-a p:last-child, .faq-a ul:last-child { margin-bottom: 0; }
 
+/* News (same as Secure Funder / Secure Broker) */
+.press-row { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 24px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--rule); color: inherit; }
+.press-row:first-child { border-top: 1px solid var(--ink); }
+a.press-row:hover { text-decoration: none; }
+a.press-row:hover h3 { color: var(--link); }
+.press-row img { width: 96px; height: auto; }
+.press-row h3 { font-size: 20px; line-height: 1.35; }
+@media (max-width: 640px) { .press-row { grid-template-columns: 64px minmax(0, 1fr); } .press-row img { width: 64px; } }
+
 /* Inner pages */
 .page-head { padding: 72px 0 32px; border-bottom: 1px solid var(--rule); }
 .page-head h1 { font-size: clamp(40px, 5vw, 60px); line-height: 1.06; letter-spacing: -0.015em; font-weight: 400; }
