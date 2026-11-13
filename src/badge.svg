@@ -4,14 +4,14 @@
     <path id="arcBot" d="M 147 627 A 480 480 0 0 0 1107 627"/>
   </defs>
   <style>text{font-family:'Inter','Public Sans','Helvetica Neue',Arial,sans-serif}</style>
-  <!-- outer ring: neon pink top, hot pink bottom -->
-  <path d="M 52 612 A 575 575 0 0 1 1202 612 Z" fill="#FF3EA5"/>
-  <path d="M 52 626 A 575 575 0 0 0 1202 626 Z" fill="#E6007E"/>
+  <!-- outer ring: bright teal top, dark teal bottom -->
+  <path d="M 52 612 A 575 575 0 0 1 1202 612 Z" fill="#14B8A6"/>
+  <path d="M 52 626 A 575 575 0 0 0 1202 626 Z" fill="#0F766E"/>
   <circle cx="627" cy="619" r="442" fill="#FFFFFF"/>
   <text font-size="74" font-weight="600" letter-spacing="14" fill="#FFFFFF" text-anchor="middle"><textPath href="#arcTop" startOffset="50%">SECURITY  |  TRUST</textPath></text>
   <text font-size="64" font-weight="600" letter-spacing="8" fill="#FFFFFF" text-anchor="middle" dominant-baseline="hanging"><textPath href="#arcBot" startOffset="50%" side="left">SECURESOFTWARE.ORG</textPath></text>
-  <text x="627" y="525" font-size="168" font-weight="800" fill="#3A0420" text-anchor="middle" letter-spacing="2">SECURE</text>
-  <text x="627" y="690" font-size="146" font-weight="800" fill="#3A0420" text-anchor="middle" letter-spacing="0">SOFTWARE</text>
-  <rect x="280" y="728" width="694" height="7" fill="#FF3EA5"/>
-  <text x="627" y="922" font-size="176" font-weight="600" fill="#FF3EA5" text-anchor="middle" letter-spacing="10">2026</text>
+  <text x="627" y="525" font-size="168" font-weight="800" fill="#042F2E" text-anchor="middle" letter-spacing="2">SECURE</text>
+  <text x="627" y="690" font-size="146" font-weight="800" fill="#042F2E" text-anchor="middle" letter-spacing="0">SOFTWARE</text>
+  <rect x="280" y="728" width="694" height="7" fill="#14B8A6"/>
+  <text x="627" y="922" font-size="176" font-weight="600" fill="#14B8A6" text-anchor="middle" letter-spacing="10">2026</text>
 </svg>
