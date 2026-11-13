@@ -2,7 +2,7 @@
    Same layout system as securefunder.org / securebroker.org, with a dark orange palette. */
 :root {
   /* Dark orange on the site (like Broker's green / Funder's navy); bright orange only in the badge and logo */
-  --orange: #9A3412; --orange-deep: #7C2D12; --orange-dark: #5A2209; --lime: #DDF734;
+  --orange: #EF7215; --orange-deep: #D9620C; --orange-dark: #EF7215; --lime: #DDF734;
 
   --ink: #0E1B2E; --text: #3A4659; --muted: #6B7686; --rule: #D9DEE5; --band: #F4F6F9; --paper: #FFFFFF;
   --link: #1A6DD9; --accent: var(--orange); --accent-deep: var(--orange-deep); --dark: var(--orange-dark);
