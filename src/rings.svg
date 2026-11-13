@@ -2,8 +2,8 @@
   <defs>
     <clipPath id="lower"><rect x="0" y="290" width="500" height="210"/></clipPath>
   </defs>
-  <circle cx="212" cy="218" r="118" fill="none" stroke="#9D174D" stroke-width="62"/>
-  <circle cx="318" cy="298" r="104" fill="none" stroke="#EC4899" stroke-width="54"/>
+  <circle cx="212" cy="218" r="118" fill="none" stroke="#8E1449" stroke-width="62"/>
+  <circle cx="318" cy="298" r="104" fill="none" stroke="#F472B6" stroke-width="54"/>
   <!-- dark ring passes over the pink ring at the lower-left crossing -->
-  <circle cx="212" cy="218" r="118" fill="none" stroke="#9D174D" stroke-width="62" clip-path="url(#lower)"/>
+  <circle cx="212" cy="218" r="118" fill="none" stroke="#8E1449" stroke-width="62" clip-path="url(#lower)"/>
 </svg>
