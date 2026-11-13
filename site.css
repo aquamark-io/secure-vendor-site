@@ -1,8 +1,8 @@
 /* Secure Vendor — shared site styles.
    Same layout system as securefunder.org / securebroker.org, with a purple palette. */
 :root {
-  /* Dark purple on the site (like Broker's green / Funder's navy); light purple only in the badge and logo */
-  --purple: #4C2A85; --purple-deep: #3B2068; --purple-dark: #331A5E; --lime: #DDF734;
+  /* Badge purples: light #8B54C9 (buttons, logo ring), dark #33135D (button hover, logo ring); dark sections #331A5E */
+  --purple: #8B54C9; --purple-deep: #33135D; --purple-dark: #331A5E; --lime: #DDF734;
 
   --ink: #0E1B2E; --text: #3A4659; --muted: #6B7686; --rule: #D9DEE5; --band: #F4F6F9; --paper: #FFFFFF;
   --link: #1A6DD9; --accent: var(--purple); --accent-deep: var(--purple-deep); --dark: var(--purple-dark);

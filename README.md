@@ -1,6 +1,6 @@
 # Secure Vendor™ site
 
-Static site for Secure Vendor™ (securevendor.org), the vendor certification in the Secure Broker / Secure Funder family. Same layout system as those sites, with a purple palette (light purple only in the badge and logo).
+Static site for Secure Vendor™ (securevendor.org), the vendor certification in the Secure Broker / Secure Funder family. Same layout system as those sites, with a purple palette matched to the badge.
 
 - `site.css`: shared styles; colors are the tokens at the top.
 - Pages: `/`, `/program-guidelines/` (Program Requirements), `/join/`, `/contact/`, `/directory/`. `/how-it-works/` redirects to Program Requirements. Links are relative, so the site works on github.io and on a custom domain.
