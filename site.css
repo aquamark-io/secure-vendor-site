@@ -45,6 +45,10 @@ sup.tm { font-size: .5em; font-weight: 500; line-height: 0; vertical-align: supe
 .mobile-menu { display: none; border-top: 1px solid var(--rule); }
 .mobile-menu a { display: block; padding: 14px 32px; border-bottom: 1px solid var(--rule); color: var(--ink); }
 
+/* Home page announcement bar (inside the sticky nav) */
+.announce { background: var(--dark); color: #FFFFFF; font-size: 13px; font-weight: 500; line-height: 1.4; text-align: center; padding: 9px 16px; }
+@media (max-width: 640px) { .announce { font-size: min(13px, 3.2vw); padding: 9px 12px; } }
+
 /* Menu: hamburger at every screen size (links live in the dropdown) */
 .nav-links { display: none !important; }
 .nav-toggle { display: inline-flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 5px; width: 44px; height: 44px; padding: 0; border: 1px solid var(--rule); background: var(--paper); cursor: pointer; }
