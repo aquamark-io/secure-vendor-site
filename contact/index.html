@@ -124,20 +124,6 @@
   })();
 </script>
 
-<dialog class="join-pop" id="joinPop" aria-labelledby="joinPopTitle">
-  <h2 id="joinPopTitle">🚀 Coming soon</h2>
-  <p>Secure Vendor<sup class="tm">&trade;</sup> doesn&rsquo;t open to the public until January 2027.</p>
-  <form method="dialog"><button class="btn" type="submit">Close</button></form>
-</dialog>
-<script>
-  (function () {
-    var d = document.getElementById('joinPop');
-    document.querySelectorAll('a[href$="join/"]').forEach(function (a) {
-      a.addEventListener('click', function (e) { e.preventDefault(); d.showModal(); });
-    });
-    d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
-  })();
-</script>
 
 </body>
 </html>
