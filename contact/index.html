@@ -16,6 +16,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../site.css?v=6a0b9c0f">
+<style>
+  .msg { margin-top: 56px; }
+  .msg h2 { font-family: var(--serif); font-weight: 400; font-size: 28px; color: var(--ink); margin: 0; }
+  .msg-sub { font-size: 15px; color: var(--muted); margin: 6px 0 24px; }
+  .msg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .msg-field { margin-bottom: 20px; }
+  .msg-field label { display: block; font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .msg-opt { font-weight: 400; color: var(--muted); }
+  .msg-field input, .msg-field textarea { width: 100%; box-sizing: border-box; font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 1px solid var(--rule); border-radius: 0; padding: 11px 12px; line-height: 1.5; }
+  .msg-field textarea { resize: vertical; min-height: 140px; }
+  .msg-field input:focus, .msg-field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(26, 109, 217, .12); }
+  .msg-field [aria-invalid=true] { border-color: #B42318; }
+  .msg .btn { cursor: pointer; }
+  .msg .btn[disabled] { opacity: .65; cursor: progress; }
+  .msg-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .msg-status { margin: 0 0 16px; font-size: 15px; }
+  .msg-status.is-error { color: #B42318; }
+  .msg-status.is-ok { color: var(--ink); }
+  @media (max-width: 560px) { .msg-row { grid-template-columns: 1fr; gap: 0; } }
+</style>
 </head>
 <body>
 
@@ -64,10 +84,58 @@
         <li><span class="cx-k">Meet</span><a class="cx-v" href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer" style="color:var(--link)">Schedule</a></li>
         <li><span class="cx-k">Message</span><a class="cx-v" href="mailto:info@aquamark.io" style="color:var(--link)">info@aquamark.io</a></li>
       </ul>
+      <form class="msg" id="message" novalidate>
+        <h2>Send a message</h2>
+        <p class="msg-sub">We usually reply within one business day.</p>
+        <div class="msg-row">
+          <div class="msg-field">
+            <label for="m-name">Name <span class="msg-opt">(optional)</span></label>
+            <input id="m-name" name="name" type="text" autocomplete="name" maxlength="120">
+          </div>
+          <div class="msg-field">
+            <label for="m-email">Email</label>
+            <input id="m-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+          </div>
+        </div>
+        <div class="msg-field">
+          <label for="m-message">Message</label>
+          <textarea id="m-message" name="message" rows="5" maxlength="5000" required></textarea>
+        </div>
+        <div class="msg-hp" aria-hidden="true"><label for="m-fax">Fax</label><input id="m-fax" name="fax" type="text" tabindex="-1" autocomplete="off"></div>
+        <input type="hidden" name="t" id="m-t">
+        <p class="msg-status" id="m-status" role="status" hidden></p>
+        <button class="btn" type="submit" id="m-send">Send message</button>
+      </form>
     </div>
   </section>
 
 </main>
+
+<script>
+  (function () {
+    var form = document.getElementById('message'); if (!form) return;
+    var btn = document.getElementById('m-send'), status = document.getElementById('m-status');
+    var email = document.getElementById('m-email'), msg = document.getElementById('m-message');
+    document.getElementById('m-t').value = String(Date.now());
+    function say(text, ok) { status.textContent = text; status.className = 'msg-status ' + (ok ? 'is-ok' : 'is-error'); status.hidden = false; }
+    [email, msg].forEach(function (el) { el.addEventListener('input', function () { el.removeAttribute('aria-invalid'); }); });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var bad = null;
+      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email.value.trim())) { email.setAttribute('aria-invalid', 'true'); bad = bad || email; }
+      if (!msg.value.trim()) { msg.setAttribute('aria-invalid', 'true'); bad = bad || msg; }
+      if (bad) { say(bad === email ? 'Please enter a valid email address.' : 'Please write a message.', false); bad.focus(); return; }
+      btn.disabled = true; btn.textContent = 'Sending\u2026'; status.hidden = true;
+      fetch('https://portal.securefunder.org/message', { method: 'POST', body: new FormData(form) })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (d) {
+          if (d && d.ok) { form.reset(); say('Thanks, your message is on its way. We\u2019ll reply by email.', true); btn.textContent = 'Sent'; return; }
+          say((d && d.error) || 'Something went wrong. Please try again.', false); btn.disabled = false; btn.textContent = 'Send message';
+        })
+        .catch(function () { say('We couldn\u2019t send that. Please try again, or email info@aquamark.io.', false); btn.disabled = false; btn.textContent = 'Send message'; });
+    });
+  })();
+</script>
 
 <footer class="site-foot">
   <div class="wrap">
