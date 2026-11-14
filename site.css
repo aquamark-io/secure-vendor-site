@@ -182,6 +182,21 @@ a.press-row:hover h3 { color: var(--link); }
 @media (max-width: 640px) { .press-row { grid-template-columns: 64px minmax(0, 1fr); } .press-row img { width: 64px; } }
 
 
+/* Program Requirements + Download Safeguards (same layout as Secure Broker / Secure Funder) */
+.req-band { background: var(--band); padding: 56px 0 88px; }
+.req-list { list-style: none; margin: 0; padding: 8px 36px; background: var(--paper); border: 1px solid var(--rule); box-shadow: 0 1px 2px rgba(14, 27, 46, .04), 0 12px 32px rgba(14, 27, 46, .06); }
+.req-list li { display: grid; grid-template-columns: 36px 1fr; gap: 20px; align-items: start; padding: 22px 0; border-bottom: 1px solid var(--rule); }
+.req-list li:last-child { border-bottom: 0; }
+.req-n { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 14px; font-weight: 700; }
+.req-t { display: block; padding-top: 3px; font-size: 18px; line-height: 1.55; color: var(--ink); }
+.req-opts { display: grid; gap: 10px; margin-top: 16px; }
+.req-opt { display: grid; grid-template-columns: 26px 1fr; gap: 12px; align-items: start; padding: 4px 0; font-size: 16px; line-height: 1.6; color: var(--text); }
+.req-opt strong { color: var(--ink); font-weight: 600; }
+.opt-k { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; margin-top: 1px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent); font-size: 12px; font-weight: 700; background: var(--paper); }
+@media (max-width: 760px) { .req-band { padding: 32px 0 56px; } .req-list { padding: 4px 18px; } .req-list li { grid-template-columns: 30px 1fr; gap: 14px; padding: 18px 0; } .req-n { width: 28px; height: 28px; font-size: 13px; } .req-t { font-size: 17px; padding-top: 2px; } .req-opt { grid-template-columns: 24px 1fr; gap: 10px; } }
+.req-note { margin: 12px 0 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+.page-head.req-plain { border-bottom: 0; }
+
 /* Inner pages */
 .page-head { padding: 72px 0 32px; border-bottom: 1px solid var(--rule); }
 .page-head h1 { font-size: clamp(40px, 5vw, 60px); line-height: 1.06; letter-spacing: -0.015em; font-weight: 400; }
