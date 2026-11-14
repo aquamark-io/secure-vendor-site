@@ -15,6 +15,9 @@
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; overflow-x: clip; scroll-padding-top: 120px; }
 body { margin: 0; overflow-x: clip; background: var(--paper); color: var(--text); font-family: var(--sans); font-size: 17px; line-height: 1.65; }
+/* Short pages: the main area grows so the footer always reaches the bottom of the window */
+body { min-height: 100vh; display: flex; flex-direction: column; }
+body > main { flex: 1 0 auto; }
 h1, h2, h3, p, li, blockquote { overflow-wrap: break-word; }
 img { max-width: 100%; display: block; }
 a { color: var(--link); text-decoration: none; }
