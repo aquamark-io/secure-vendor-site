@@ -16,6 +16,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="site.css?v=a5dc08e4">
+<style>
+  .form-frame { border: 1px solid var(--rule); background: var(--paper); padding: 28px 32px; }
+  .nl-form label { display: block; font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .nl-row { display: flex; gap: 12px; }
+  .nl-row input { flex: 1; min-width: 0; font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 1px solid var(--rule); border-radius: 0; padding: 11px 12px; line-height: 1.4; }
+  .nl-row input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(26, 109, 217, .15); }
+  .nl-row input[aria-invalid=true] { border-color: #B42318; }
+  .nl-row .btn { min-width: 0; flex: none; }
+  .nl-row .btn[disabled] { opacity: .65; cursor: progress; }
+  .nl-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .nl-msg { margin: 12px 0 0; font-size: 15px; }
+  .nl-msg.is-error { color: #B42318; }
+  .nl-msg.is-ok { color: var(--ink); }
+  @media (max-width: 560px) { .form-frame { padding: 22px 20px; } .nl-row { flex-direction: column; } .nl-row .btn { width: 100%; } }
+</style>
 </head>
 <body>
 
@@ -214,8 +229,16 @@
         <p class="section-intro">Program updates, certification news, security tips, and educational content.</p>
       </div>
       <div class="form-frame">
-        <div style="width:100%;height:500px;" data-fillout-id="7UF94HDPLLus" data-fillout-embed-type="standard" data-fillout-inherit-parameters data-fillout-dynamic-resize></div>
-        <script src="https://server.fillout.com/embed/v1/"></script>
+        <form class="nl-form" id="nlForm" novalidate>
+          <label for="nl-email">Email address</label>
+          <div class="nl-row">
+            <input id="nl-email" name="email" type="email" autocomplete="email" placeholder="name@company.com" maxlength="254" required>
+            <button class="btn" type="submit" id="nl-submit">Subscribe</button>
+          </div>
+          <div class="nl-hp" aria-hidden="true"><label for="nl-fax">Fax</label><input id="nl-fax" name="fax" type="text" tabindex="-1" autocomplete="off"></div>
+          <input type="hidden" name="t" id="nl-t">
+          <p class="nl-msg" id="nl-msg" role="status" hidden></p>
+        </form>
       </div>
     </div>
   </section>
@@ -238,6 +261,28 @@
   </section>
 
 </main>
+
+<script>
+  (function () {
+    var form = document.getElementById('nlForm'); if (!form) return;
+    var input = document.getElementById('nl-email'), btn = document.getElementById('nl-submit'), msg = document.getElementById('nl-msg');
+    document.getElementById('nl-t').value = String(Date.now());
+    function say(text, ok) { msg.textContent = text; msg.className = 'nl-msg ' + (ok ? 'is-ok' : 'is-error'); msg.hidden = false; }
+    input.addEventListener('input', function () { input.removeAttribute('aria-invalid'); });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(input.value.trim())) { input.setAttribute('aria-invalid', 'true'); say('Please enter a valid email address.', false); input.focus(); return; }
+      btn.disabled = true; btn.textContent = 'Subscribing\u2026'; msg.hidden = true;
+      fetch('https://portal.securefunder.org/newsletter', { method: 'POST', body: new FormData(form) })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (d) {
+          if (d && d.ok) { form.reset(); say('Thanks, you\u2019re subscribed.', true); btn.textContent = 'Subscribed'; return; }
+          say((d && d.error) || 'Something went wrong. Please try again.', false); btn.disabled = false; btn.textContent = 'Subscribe';
+        })
+        .catch(function () { say('We couldn\u2019t reach the server. Please try again.', false); btn.disabled = false; btn.textContent = 'Subscribe'; });
+    });
+  })();
+</script>
 
 <footer class="site-foot">
   <div class="wrap">
