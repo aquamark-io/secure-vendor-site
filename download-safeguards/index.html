@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../site.css?v=c1dd0ff9">
+<link rel="stylesheet" href="../site.css?v=a5dc08e4">
 </head>
 <body>
 
@@ -130,6 +130,21 @@
     m.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
     document.addEventListener('click', function (e) { if (m.classList.contains('open') && !m.contains(e.target)) set(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+  })();
+</script>
+
+<dialog class="join-pop" id="joinPop" aria-labelledby="joinPopTitle">
+  <h2 id="joinPopTitle">🚀 Coming soon</h2>
+  <p>Secure Vendor<sup class="tm">&trade;</sup> doesn&rsquo;t open to the public until January 2027.</p>
+  <form method="dialog"><button class="btn" type="submit">Got it</button></form>
+</dialog>
+<script>
+  (function () {
+    var d = document.getElementById('joinPop');
+    document.querySelectorAll('a[href$="join/"]').forEach(function (a) {
+      a.addEventListener('click', function (e) { e.preventDefault(); d.showModal(); });
+    });
+    d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
   })();
 </script>
 
