@@ -26,6 +26,7 @@
   .nl-row .btn[disabled] { opacity: .65; cursor: progress; }
   .nl-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
   .nl-msg { margin: 12px 0 0; font-size: 15px; }
+  .nl-help { margin: 20px 0 0; font-size: 15px; color: var(--muted); }
   .nl-msg.is-error { color: #B42318; }
   .nl-msg.is-ok { color: var(--ink); }
   @media (max-width: 560px) { .nl-row { flex-direction: column; } .nl-row .btn { width: 100%; } }
@@ -35,6 +36,7 @@
 
 
 <header class="nav">
+  <div class="announce">🚀 <strong>January 2027:</strong> Secure Vendor<sup class="tm">&trade;</sup> opens to the public</div>
   <div class="wrap">
     <a class="nav-logo" href="../" aria-label="Secure Vendor home"><img src="../vendor-rings.png?v=c6db47a4" alt=""><span>Secure Vendor<sup>&trade;</sup></span></a>
     <nav class="nav-links" aria-label="Primary">
@@ -85,21 +87,7 @@
           <input type="hidden" name="t" id="nl-t">
           <p class="nl-msg" id="nl-msg" role="status" hidden></p>
         </form>
-        <p class="rq-eyebrow" style="margin-top:48px">When you apply, we&rsquo;ll ask about</p>
-        <ul class="ruled">
-          <li>The types of sensitive information your company handles</li>
-          <li>The systems where that information is accessed or stored</li>
-          <li>Whether non-management personnel can download, export, or extract it</li>
-          <li>Which safeguards are currently implemented</li>
-          <li>Whether you need an alternative approach reviewed</li>
-        </ul>
-        <p class="note">Using multiple systems with different safeguards? List each one.</p>
-        <p class="rq-eyebrow" style="margin-top:40px">Questions?</p>
-        <ul class="cx-list">
-          <li><span class="cx-k">Message</span><a class="cx-v" href="mailto:info@aquamark.io?subject=Secure%20Vendor" style="color:var(--link)">info@aquamark.io</a></li>
-          <li><span class="cx-k">Meet</span><a class="cx-v" href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer" style="color:var(--link)">Schedule</a></li>
-          <li><span class="cx-k">Call</span><a class="cx-v" href="tel:+14155001117">(415) 500-1117</a></li>
-        </ul>
+        <p class="nl-help">Questions? <a href="../contact/">Contact us</a>.</p>
       </div>
     </div>
   </section>
