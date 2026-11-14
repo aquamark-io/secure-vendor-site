@@ -181,13 +181,6 @@ a.press-row:hover h3 { color: var(--link); }
 .press-row h3 { font-size: 20px; line-height: 1.35; }
 @media (max-width: 640px) { .press-row { grid-template-columns: 64px minmax(0, 1fr); } .press-row img { width: 64px; } }
 
-/* FAQ: show the first 5 questions; a "View more" row reveals the rest */
-.faq-list.is-collapsed .faq-item:nth-child(n+6) { display: none; }
-.faq-more { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 24px 0; border: 0; border-bottom: 1px solid var(--rule); background: none; font: 600 17px var(--sans); color: var(--accent); cursor: pointer; text-align: left; }
-.faq-more .vm-icon { width: 32px; height: 32px; border-radius: 50%; background: #F1EAFA; display: inline-flex; align-items: center; justify-content: center; transition: transform .2s ease; }
-.faq-more svg { width: 14px; height: 14px; }
-.faq-more[aria-expanded="true"] .vm-icon { transform: rotate(180deg); }
-.faq-more:hover .vm-label { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Inner pages */
 .page-head { padding: 72px 0 32px; border-bottom: 1px solid var(--rule); }
