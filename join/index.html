@@ -16,6 +16,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../site.css?v=a5dc08e4">
+<style>
+  .nl-form label { display: block; font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .nl-row { display: flex; gap: 12px; }
+  .nl-row input { flex: 1; min-width: 0; font: inherit; font-size: 16px; color: var(--ink); background: #fff; border: 1px solid var(--rule); border-radius: 0; padding: 11px 12px; line-height: 1.4; }
+  .nl-row input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(26, 109, 217, .15); }
+  .nl-row input[aria-invalid=true] { border-color: #B42318; }
+  .nl-row .btn { min-width: 0; flex: none; }
+  .nl-row .btn[disabled] { opacity: .65; cursor: progress; }
+  .nl-hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .nl-msg { margin: 12px 0 0; font-size: 15px; }
+  .nl-msg.is-error { color: #B42318; }
+  .nl-msg.is-ok { color: var(--ink); }
+  @media (max-width: 560px) { .nl-row { flex-direction: column; } .nl-row .btn { width: 100%; } }
+</style>
 </head>
 <body>
 
@@ -53,21 +67,25 @@
   <section class="page-head">
     <div class="rq-wrap">
       <h1>Join Secure Vendor</h1>
-      <p class="lede"><mark class="soft-mark">Payment not due to join.</mark> Every applicant completes a live verification call, typically 30 to 90 minutes. Review the <a href="../program-guidelines/">requirements</a> before applying.</p>
+      <p class="lede">Enrollment opens soon. Join the waitlist and we&rsquo;ll email you when applications open.</p>
     </div>
   </section>
 
   <section class="rq-block">
     <div class="rq-wrap">
       <div class="join-only">
-        <!-- TODO: replace this section with the Secure Vendor Fillout join form once it exists. The form should ask
-             (and allow more than one system, each with its own safeguards):
-             1. Types of sensitive information handled
-             2. Systems where it is accessed or stored
-             3. Whether non-management personnel can download, export, or extract it
-             4. Safeguards currently implemented
-             5. Whether an alternative approach needs review -->
-        <p class="rq-eyebrow">When you apply, we&rsquo;ll ask about</p>
+        <form class="nl-form" id="nlForm" novalidate>
+          <input type="hidden" name="list" value="waitlist">
+          <label for="nl-email">Email address</label>
+          <div class="nl-row">
+            <input id="nl-email" name="email" type="email" autocomplete="email" placeholder="name@company.com" maxlength="254" required>
+            <button class="btn" type="submit" id="nl-submit">Join waitlist</button>
+          </div>
+          <div class="nl-hp" aria-hidden="true"><label for="nl-fax">Fax</label><input id="nl-fax" name="fax" type="text" tabindex="-1" autocomplete="off"></div>
+          <input type="hidden" name="t" id="nl-t">
+          <p class="nl-msg" id="nl-msg" role="status" hidden></p>
+        </form>
+        <p class="rq-eyebrow" style="margin-top:48px">When you apply, we&rsquo;ll ask about</p>
         <ul class="ruled">
           <li>The types of sensitive information your company handles</li>
           <li>The systems where that information is accessed or stored</li>
@@ -76,7 +94,7 @@
           <li>Whether you need an alternative approach reviewed</li>
         </ul>
         <p class="note">Using multiple systems with different safeguards? List each one.</p>
-        <p class="rq-eyebrow" style="margin-top:40px">Apply</p>
+        <p class="rq-eyebrow" style="margin-top:40px">Questions?</p>
         <ul class="cx-list">
           <li><span class="cx-k">Message</span><a class="cx-v" href="mailto:info@aquamark.io?subject=Secure%20Vendor" style="color:var(--link)">info@aquamark.io</a></li>
           <li><span class="cx-k">Meet</span><a class="cx-v" href="https://calendly.com/christina-aquamark/" target="_blank" rel="noopener noreferrer" style="color:var(--link)">Schedule</a></li>
@@ -87,6 +105,28 @@
   </section>
 
 </main>
+
+<script>
+  (function () {
+    var form = document.getElementById('nlForm'); if (!form) return;
+    var input = document.getElementById('nl-email'), btn = document.getElementById('nl-submit'), msg = document.getElementById('nl-msg');
+    document.getElementById('nl-t').value = String(Date.now());
+    function say(text, ok) { msg.textContent = text; msg.className = 'nl-msg ' + (ok ? 'is-ok' : 'is-error'); msg.hidden = false; }
+    input.addEventListener('input', function () { input.removeAttribute('aria-invalid'); });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(input.value.trim())) { input.setAttribute('aria-invalid', 'true'); say('Please enter a valid email address.', false); input.focus(); return; }
+      btn.disabled = true; btn.textContent = 'Joining\u2026'; msg.hidden = true;
+      fetch('https://portal.securefunder.org/newsletter', { method: 'POST', body: new FormData(form) })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (d) {
+          if (d && d.ok) { form.reset(); say('You\u2019re on the waitlist. We\u2019ll email you when enrollment opens.', true); btn.textContent = 'On the waitlist'; return; }
+          say((d && d.error) || 'Something went wrong. Please try again.', false); btn.disabled = false; btn.textContent = 'Join waitlist';
+        })
+        .catch(function () { say('We couldn\u2019t reach the server. Please try again.', false); btn.disabled = false; btn.textContent = 'Join waitlist'; });
+    });
+  })();
+</script>
 
 <footer class="site-foot">
   <div class="wrap">
