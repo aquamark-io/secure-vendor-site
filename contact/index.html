@@ -89,8 +89,8 @@
         <p class="msg-sub">We usually reply within one business day.</p>
         <div class="msg-row">
           <div class="msg-field">
-            <label for="m-name">Name <span class="msg-opt">(optional)</span></label>
-            <input id="m-name" name="name" type="text" autocomplete="name" maxlength="120">
+            <label for="m-name">Name</label>
+            <input id="m-name" name="name" type="text" autocomplete="name" maxlength="120" required>
           </div>
           <div class="msg-field">
             <label for="m-email">Email</label>
@@ -115,16 +115,17 @@
   (function () {
     var form = document.getElementById('message'); if (!form) return;
     var btn = document.getElementById('m-send'), status = document.getElementById('m-status');
-    var email = document.getElementById('m-email'), msg = document.getElementById('m-message');
+    var name = document.getElementById('m-name'), email = document.getElementById('m-email'), msg = document.getElementById('m-message');
     document.getElementById('m-t').value = String(Date.now());
     function say(text, ok) { status.textContent = text; status.className = 'msg-status ' + (ok ? 'is-ok' : 'is-error'); status.hidden = false; }
-    [email, msg].forEach(function (el) { el.addEventListener('input', function () { el.removeAttribute('aria-invalid'); }); });
+    [name, email, msg].forEach(function (el) { el.addEventListener('input', function () { el.removeAttribute('aria-invalid'); }); });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var bad = null;
+      if (!name.value.trim()) { name.setAttribute('aria-invalid', 'true'); bad = bad || name; }
       if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(email.value.trim())) { email.setAttribute('aria-invalid', 'true'); bad = bad || email; }
       if (!msg.value.trim()) { msg.setAttribute('aria-invalid', 'true'); bad = bad || msg; }
-      if (bad) { say(bad === email ? 'Please enter a valid email address.' : 'Please write a message.', false); bad.focus(); return; }
+      if (bad) { say(bad === name ? 'Please enter your name.' : bad === email ? 'Please enter a valid email address.' : 'Please write a message.', false); bad.focus(); return; }
       btn.disabled = true; btn.textContent = 'Sending\u2026'; status.hidden = true;
       fetch('https://portal.securefunder.org/message', { method: 'POST', body: new FormData(form) })
         .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
