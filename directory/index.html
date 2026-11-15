@@ -17,13 +17,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../site.css?v=6a0b9c0f">
 <style>
-  .dir-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
-  .dir-card { display: flex; flex-direction: column; border: 1px solid var(--rule); background: var(--paper); padding: 18px; color: var(--ink); text-decoration: none; }
+  .dir-search { margin-top: 28px; max-width: 760px; }
+  .dir-search-label { display: block; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .dir-search-row { display: flex; gap: 12px; }
+  .dir-search-row input { flex: 1; min-width: 0; font: inherit; font-size: 16px; padding: 11px 14px; border: 1px solid var(--rule); background: #fff; color: var(--ink); }
+  .dir-search-row input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(139, 84, 201, .18); }
+  .dir-search-row .btn { min-width: 0; }
+  .dir-count { margin: 12px 0 0; font-size: 14px; font-weight: 600; color: var(--ink); }
+  .dir-wrap { border: 1px solid var(--rule); background: var(--band); padding: 20px; }
+  .dir-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+  .dir-card { display: flex; flex-direction: column; align-items: center; border: 1px solid var(--rule); background: var(--paper); padding: 18px; color: var(--ink); text-decoration: none; }
   a.dir-card:hover { border-color: var(--accent); }
-  .dir-logo { height: 72px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-  .dir-logo img { max-width: 100%; max-height: 72px; object-fit: contain; }
-  .dir-name { font-weight: 600; font-size: 16px; }
-  .dir-tag { margin-top: 6px; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+  .dir-logo { width: 100%; height: 92px; display: flex; align-items: center; justify-content: center; background: #FAFAFB; border: 1px solid #EEF0F3; padding: 14px; }
+  .dir-logo img { max-width: 100%; max-height: 64px; object-fit: contain; }
+  .dir-tag { margin-top: 12px; font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .dir-wrap .empty { border: 0; padding: 20px; }
+  @media (max-width: 560px) { .dir-search-row .btn { padding-left: 14px; padding-right: 14px; } }
 </style>
 </head>
 <body>
@@ -62,8 +71,14 @@
   <section class="page-head">
     <div class="rq-wrap">
       <h1>Secure Vendor Directory</h1>
-      <p class="lede">Vendors recognized for protecting sensitive information in alternative finance.</p>
-      <p class="notice">Certification is not guaranteed, and a listing does not constitute an endorsement.</p>
+      <div class="dir-search">
+        <label class="dir-search-label" for="dirSearch">Search by company name</label>
+        <div class="dir-search-row">
+          <input id="dirSearch" type="search" placeholder="e.g. 'Vendor Company'" autocomplete="off">
+          <button class="btn btn-quiet" type="button" id="dirClear">Clear</button>
+        </div>
+        <p class="dir-count" id="dirCount" aria-live="polite"></p>
+      </div>
     </div>
   </section>
 
@@ -71,13 +86,11 @@
     <div class="rq-wrap">
       <div class="dir-group">
         <h2>Certified Members</h2>
-        <p>These companies have completed their review and been certified.</p>
-        <div class="dir-grid" id="certified"></div>
+        <div class="dir-wrap"><div class="dir-grid" id="certified"></div></div>
       </div>
       <div class="dir-group">
         <h2>Pending Review</h2>
-        <p>These companies have joined and are in review.</p>
-        <div class="dir-grid" id="pending"></div>
+        <div class="dir-wrap"><div class="dir-grid" id="pending"></div></div>
       </div>
     </div>
   </section>
@@ -139,18 +152,30 @@
       var a = document.createElement(m.url ? 'a' : 'div');
       a.className = 'dir-card';
       if (m.url) { a.href = m.url; a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+      a.setAttribute('aria-label', m.name);
       var box = document.createElement('div'); box.className = 'dir-logo';
       var img = document.createElement('img'); img.src = m.logo; img.alt = m.name; img.loading = 'lazy'; box.appendChild(img);
-      var name = document.createElement('div'); name.className = 'dir-name'; name.textContent = m.name;
-      a.appendChild(box); a.appendChild(name);
+      a.appendChild(box);
       if (m.charter) { var t = document.createElement('div'); t.className = 'dir-tag'; t.textContent = 'Charter Member'; a.appendChild(t); }
       return a;
     }
-    [['certified', 'No certified members yet.'], ['pending', 'No companies pending review yet.']].forEach(function (g) {
-      var el = document.getElementById(g[0]), list = MEMBERS.filter(function (m) { return m.status === g[0]; });
-      if (!list.length) { el.className = 'empty'; el.textContent = g[1]; return; }
-      list.forEach(function (m) { el.appendChild(card(m)); });
-    });
+    var GROUPS = [['certified', 'No certified members yet.'], ['pending', 'No companies pending review yet.']];
+    var input = document.getElementById('dirSearch'), count = document.getElementById('dirCount');
+    function render() {
+      var q = input.value.trim().toLowerCase(), shown = 0;
+      GROUPS.forEach(function (g) {
+        var el = document.getElementById(g[0]);
+        var list = MEMBERS.filter(function (m) { return m.status === g[0] && (!q || m.name.toLowerCase().indexOf(q) !== -1); });
+        el.innerHTML = ''; shown += list.length;
+        if (!list.length) { el.className = 'empty'; el.textContent = q ? 'No matches.' : g[1]; return; }
+        el.className = 'dir-grid';
+        list.forEach(function (m) { el.appendChild(card(m)); });
+      });
+      count.textContent = 'Showing ' + shown + (shown === 1 ? ' company' : ' companies');
+    }
+    input.addEventListener('input', render);
+    document.getElementById('dirClear').addEventListener('click', function () { input.value = ''; render(); input.focus(); });
+    render();
   })();
 </script>
 <script>
