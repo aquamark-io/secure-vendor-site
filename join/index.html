@@ -61,7 +61,8 @@
   .jf-done p { margin: 0; }
   @media (max-width: 560px) { .jf-row { grid-template-columns: 1fr; } }
   #charterNote[hidden] { display: none; }
-  .soft-hl { background: #EEE3FA; color: inherit; padding: 2px 8px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .charter-badge { display: inline-flex; align-items: center; gap: 10px; margin: 20px 0 0; padding: 10px 18px 10px 12px; background: var(--purple); color: #fff; font-size: 16px; font-weight: 600; letter-spacing: .01em; }
+  .cb-star { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: var(--lime); color: var(--purple-deep); font-size: 14px; line-height: 1; }
 </style>
 </head>
 <body>
@@ -101,7 +102,7 @@
   <section class="page-head">
     <div class="rq-wrap">
       <h1>Join Secure Vendor</h1>
-      <p class="lede" id="charterNote"><mark class="soft-hl">Join in 2026 for Charter designation.</mark></p>
+      <p class="charter-badge" id="charterNote"><span class="cb-star" aria-hidden="true">&#9733;</span>Join now for Charter Member designation</p>
     </div>
   </section>
 
