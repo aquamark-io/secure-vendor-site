@@ -86,7 +86,7 @@ sup.tm { font-size: .5em; font-weight: 500; line-height: 0; vertical-align: supe
 .client-slot { display: flex; align-items: center; justify-content: center; height: 104px; padding: 12px 16px; text-align: center; }
 a.client-slot:hover { text-decoration: none; }
 a.client-slot.soon:hover { color: var(--accent); }
-.client-slot img { max-height: 64px; max-width: 100%; width: auto; }
+.client-slot img { max-height: 54px; max-width: 100%; width: auto; }
 .client-grid li:first-child .client-slot { justify-content: flex-start; padding-left: 0; }
 .client-name { font-family: var(--sans); font-size: 22px; font-weight: 700; letter-spacing: -.01em; color: var(--ink); }
 .client-slot.soon { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
@@ -94,7 +94,7 @@ a.client-slot.soon:hover { color: var(--accent); }
   .client-grid { grid-template-columns: 1fr; gap: 4px; }
   .client-slot { height: 56px; }
   .client-grid li:first-child .client-slot { height: 108px; justify-content: center; padding-left: 16px; }
-  .client-slot img { max-height: 72px; }
+  .client-slot img { max-height: 62px; }
 }
 
 /* Sections */
