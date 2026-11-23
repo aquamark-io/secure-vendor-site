@@ -71,7 +71,7 @@ sup.tm { font-size: .5em; font-weight: 500; line-height: 0; vertical-align: supe
 /* Hero */
 .hero { padding: 88px 0 80px; border-bottom: 1px solid var(--rule); }
 .hero .wrap { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 72px; align-items: center; }
-.hero h1 { font-size: clamp(40px, 5.2vw, 64px); line-height: 1.06; letter-spacing: -0.015em; font-weight: 400; }
+.hero h1 { font-size: clamp(40px, 5vw, 62px); line-height: 1.06; letter-spacing: -0.015em; font-weight: 400; }
 .hero h1 .m-br, .hero-lede .m-br { display: none; }
 .hero h1 strong { font-weight: 700; letter-spacing: -0.025em; }
 .hero-lede { font-size: 24px; line-height: 1.5; max-width: 24em; margin: 28px 0 0; color: var(--ink); }
